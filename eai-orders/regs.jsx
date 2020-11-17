@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, createContext, Suspense } from 
 
 /** @jsx jsx */
 import { ThemeProvider, jsx, Styled, useThemeUI } from "theme-ui"
-import { Flex, Box, Button, Text, Image, Spinner, Grid, Input } from "@theme-ui/components";
+import { Flex, Box, Button, Text, Image, Spinner, Grid, Input, Link } from "@theme-ui/components";
 import Theme from "./theme"
 
 import moment from "moment";
@@ -49,14 +49,23 @@ const Renglon = props => {
 
   return (
     <div>
-
+              <Link 
+                href={"https://sushifactory.app/orderbook?id=" + Row.Id}
+                target={"blank"}
+              >
       <Grid sx={{ width: "100%", bg: Color, borderTopStyle: i===0 ? "none" : "solid", borderWidth:2, borderColor: "#D3D3D3", }}>
 
           <Flex sx={{ width: "100%", bg: Color }} columns={[1,null,2]}>
 
 
+
+
+
             <Grid sx={{ width: "85%", bg: Color, gridGap: 0 }}>
               <Flex sx={{ width: "100%", bg: Color }}>
+
+
+
 
 
               <Button
@@ -127,13 +136,13 @@ const Renglon = props => {
 
 
 
-
               </Flex>
 
             </Grid>
 
           </Flex>
       </Grid>
+              </Link>
 
     </div>
   );

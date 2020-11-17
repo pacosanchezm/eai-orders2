@@ -120,11 +120,12 @@ const SubMenu2  = () => {
         Ver mis pedidos
       </Link>
 
-      <Link sx={Estilo.menu1}
-        to='/acc/signup'
+      <Link2 sx={Estilo.menu1}
+        href='/orderbook?opt=3'
+        target='blank'
       >
         Nuevo Pedido
-      </Link>
+      </Link2>
     
       <Link sx={Estilo.menu1}
         to='/' 
@@ -245,14 +246,14 @@ const Body = props => {
         to='/' 
         onMouseOver={() => { setMenuSelected(2)}}
        >
-        Mis Pedidos
+        Pedidos
       </Link>
     
       <Link sx={Estilo.menu1}
         to='/' 
         onMouseOver={() => { setMenuSelected(3)}}
        >
-        Blog
+        Entregas
       </Link>
     
       <Link sx={Estilo.menu1}

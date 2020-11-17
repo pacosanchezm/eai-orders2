@@ -112,7 +112,42 @@ let useAcciones = function(StateContext) {
 
     // ---------------------
   
+
+    
+    
+
     return {
+
+      getUser : async (props) => {
+        try {
+          const res = await axios.get(server + '/logindata')
+          setUserId(res.data.miid)
+          setUserName(res.data.miuser)
+    
+        } catch (e) { console.error(e) }
+      },
+  
+
+      Loader : async function (props) {
+
+        this.getUser()
+
+
+        setLoadingDataMain(true)
+          let useDataRes = await useData.Pedidos().getLista({
+            Sucursal: 6,
+            Ano: Number(2020),
+            Mes: Number(11),
+            Dia: Number(10),
+          })
+          setRegistros(useDataRes)
+
+        setLoadingDataMain(false)
+      },
+
+
+
+
 
       useChange : (Field, setField) => {
         return {
@@ -128,25 +163,7 @@ let useAcciones = function(StateContext) {
       },
 
       
-      Loader : async function (props) {
 
-        const res = await axios.get(server + '/logindata')
-        setUserId(res.data.miid)
-        setUserName(res.data.miuser)
-
-
-
-        setLoadingDataMain(true)
-          let useDataRes = await useData.Pedidos().getLista({
-            Sucursal: 6,
-            Ano: Number(2020),
-            Mes: Number(11),
-            Dia: Number(10),
-          })
-          setRegistros(useDataRes)
-
-        setLoadingDataMain(false)
-      },
 
     }
   }

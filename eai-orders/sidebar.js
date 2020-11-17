@@ -13,26 +13,38 @@ export default props => {
 
         <Box sx={{ width: "50%" }}>
 
-          <Menu {...props}>
+        <Menu {...props}>
             <a className="menu-item" href="/">
               Home
             </a>
 
-            <a className="menu-item" href="/about">
+            <a className="menu-item" href="/">
               Mi Cuenta
             </a>
 
-            <a className="menu-item" href="/services">
-              Servicios
+            <a className="menu-item" href="/login">
+              Iniciar Sesión
+            </a>
+
+
+            <a className="menu-item" href="/orders">
+              Pedidos
+            </a>
+
+            <a className="menu-item" href="/orderbook?opt=3">
+              Nuevo Pedido
+            </a>
+
+
+            <a className="menu-item" href="/delivery">
+              Entregas
             </a>
 
             <a className="menu-item" href="/contact">
-              Contact us
+              Contacto
             </a>
+
           </Menu>
-
-
-
 
           
         </Box>
