@@ -41,6 +41,68 @@ const Body = props => {
 
 // -----------------------------------------------------------------------------
 
+// ------------------
+
+const Encabezado = props => {
+  const Estilo = useThemeUI().theme.styles;
+
+  try {
+    return (
+      <div>
+
+        <Flex sx={{ width: "100%", bg: "primary" }}>
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Pedido</Text>
+          </Box>
+
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Cuenta</Text>
+          </Box>
+
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Entrega</Text>
+          </Box>
+
+
+
+
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Fecha</Text>
+          </Box>
+
+          <Box sx={{ width: "30%" }}>
+            <Text sx={Estilo.h2}>Cliente</Text>
+          </Box>
+
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Confirmado</Text>
+          </Box>
+
+
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Importe</Text>
+          </Box>
+
+          <Box sx={{ width: "15%" }}>
+            <Text sx={Estilo.h2}>Pagado</Text>
+          </Box>
+
+          <Box sx={{ width: "5%" }}>
+            <Text sx={Estilo.h2} />
+          </Box>
+        </Flex>
+      </div>
+    );
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+// -----------------------------------------------------------------------------
+
+
+
+
 const Renglon = props => {
   const Estilo = useThemeUI().theme.styles;
   const { Row, Color, getDetalleConsumo, i, usedata } = props;
@@ -51,7 +113,7 @@ const Renglon = props => {
     <div>
               <Link 
                 href={"https://sushifactory.app/orderbook?id=" + Row.Id}
-                target={"blank"}
+                target={"_blank"}
               >
       <Grid sx={{ width: "100%", bg: Color, borderTopStyle: i===0 ? "none" : "solid", borderWidth:2, borderColor: "#D3D3D3", }}>
 
@@ -61,7 +123,7 @@ const Renglon = props => {
 
 
 
-            <Grid sx={{ width: "85%", bg: Color, gridGap: 0 }}>
+            <Grid sx={{ width: "100%", bg: Color, gridGap: 0 }}>
               <Flex sx={{ width: "100%", bg: Color }}>
 
 
@@ -90,7 +152,7 @@ const Renglon = props => {
                   </Box>
 
                   <Box sx={{ width: "15%" }}>
-                    <Text sx={Estilo.h2}>{Row.TipoEntrega}</Text>
+                    <Text sx={Estilo.h2}>{Row.TipoEntrega === "1" ? "ToGo":""}{Row.TipoEntrega === "2" ? "Domicilio":""}</Text>
                   </Box>
 
 
@@ -112,7 +174,7 @@ const Renglon = props => {
                   <Box sx={{ width: "15%" }}>
                     {/* <Text sx={Estilo.h2}>{moment(Row.Fecha).format("DD MMM")}</Text> */}
                     <Text sx={Estilo.h2}>
-                      {moment(Row.Confirmado).format("DD MMM HH:mm")}
+                      {Row.Confirmado ? moment(Row.Confirmado).format("DD MMM HH:mm"):""}
                     </Text>
                   </Box>
 
@@ -221,7 +283,12 @@ const Listado = props => {
     return (
       <Grid sx={{p:0, m: 0}}>
         {Loading ? <Spinner size={17} ml={3} /> : 
+
           <div>
+          <header>
+            <Encabezado {...props} texto="Pedidos" />
+          </header>
+
             <Listado {...props}/>
           </div>
         }
@@ -241,6 +308,7 @@ export default (App = props => {
     <div>
       <ContextProvider>
         <Flex>
+
           <main sx={{width: "100%"}}>
             <Body {...props} />
           </main>

@@ -2,8 +2,8 @@ import axios from "axios"
 
 // ------------------------------------------------------------
 
-let graphqlserver = "https://8t8jt.sse.codesandbox.io/gql"
-// let graphqlserver = "https://smxai.net/graphqleai2"
+ // let graphqlserver = "https://8t8jt.sse.codesandbox.io/gql"
+   let graphqlserver = "https://smxai.net/graphqleai2"
 
 let usedata = function(StateContextM) {
 
@@ -42,7 +42,7 @@ let usedata = function(StateContextM) {
     
           let axdataRes = axdata.data.data.Clientes.Consultas.Query;
 
-          if (axdataRes) {return axdataRes} else {return 0}
+          if (axdataRes) {return axdataRes} else {return []}
         },
 
         getId: async function(e) {
@@ -80,7 +80,7 @@ let usedata = function(StateContextM) {
     
           let axdataRes = axdata.data.data.Clientes.Consultas.Query;
 
-          if (axdataRes) {return axdataRes} else {return 0}
+          if (axdataRes) {return axdataRes} else {return []}
         },
 
 
@@ -134,16 +134,10 @@ let usedata = function(StateContextM) {
               `,
               variables: {
                 Query: { 
-                    // Sucursal: Sucursal.value,
-                    // Ano: Number(moment(FiltroFecha).format("YYYY")),
-                    // Mes: Number(moment(FiltroFecha).format("MM")),
-                    // Dia: Number(moment(FiltroFecha).format("DD")),
-
                     Sucursal: e.Sucursal,
                     Ano: Number(e.Ano),
                     Mes: Number(e.Mes),
                     Dia: Number(e.Dia),
-
                 }
               }
             }
@@ -151,7 +145,7 @@ let usedata = function(StateContextM) {
         
           let axdataRes = axdata.data.data.Pedidos.Consultas.PedidoCom
           //console.log(axdataRes);
-          if (axdataRes) {return axdataRes} else {return 0}
+          if (axdataRes) {return axdataRes} else {return []}
 
         },
 

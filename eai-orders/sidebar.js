@@ -41,7 +41,7 @@ export default props => {
             </a>
 
             <a className="menu-item" href="/contact">
-              Contacto
+              Reportes
             </a>
 
           </Menu>

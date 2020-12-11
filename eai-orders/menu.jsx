@@ -114,15 +114,15 @@ const SubMenu2  = () => {
 
 
 
-      <Link sx={Estilo.menu1}
-        to='/login' 
+      <Link2 sx={Estilo.menu1}
+        href='/orders'
       >
-        Ver mis pedidos
-      </Link>
+        Ver Pedidos
+      </Link2>
 
       <Link2 sx={Estilo.menu1}
         href='/orderbook?opt=3'
-        target='blank'
+        target='_blank'
       >
         Nuevo Pedido
       </Link2>
@@ -235,12 +235,12 @@ const Body = props => {
       }}
     >
 
-      <Link sx={Estilo.menu1}
-        to='/' 
+      <Link2 sx={Estilo.menu1}
+        href='/'
         onMouseOver={() => { setMenuSelected(1)}}
-      >
+       >
         Mi Cuenta
-      </Link>
+      </Link2>
 
       <Link sx={Estilo.menu1}
         to='/' 
@@ -249,19 +249,21 @@ const Body = props => {
         Pedidos
       </Link>
     
-      <Link sx={Estilo.menu1}
-        to='/' 
+      <Link2 sx={Estilo.menu1}
+        href='/togo'
+        target='_blank'
         onMouseOver={() => { setMenuSelected(3)}}
        >
         Entregas
-      </Link>
+      </Link2>
     
-      <Link sx={Estilo.menu1}
-        to='/' 
-        onMouseOver={() => { setMenuSelected(4)}}
-      >
-        Contacto
-      </Link>
+      <Link2 sx={Estilo.menu1}
+        href='/dash'
+        target='_blank'
+        onMouseOver={() => { setMenuSelected(3)}}
+       >
+        Reportes
+      </Link2>
 
     </div>
 
